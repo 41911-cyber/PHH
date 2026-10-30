@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450" fill="none">
+  <defs>
+    <linearGradient id="g2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181513" />
+      <stop offset="100%" stop-color="#28221D" />
+    </linearGradient>
+    <linearGradient id="gGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2D299" />
+      <stop offset="100%" stop-color="#9C752B" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#g2Grad)" />
+  <rect width="596" height="446" x="2" y="2" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1.5" />
+  
+  <!-- Brutalist Architecture Study -->
+  <path d="M 120 380 L 120 160 L 260 90 L 480 90 L 480 380 Z" fill="#201C19" stroke="url(#gGold)" stroke-width="1.2" stroke-opacity="0.5"/>
+  <line x1="260" y1="90" x2="260" y2="380" stroke="url(#gGold)" stroke-width="1.2" stroke-opacity="0.4"/>
+  <rect x="150" y="190" width="80" height="150" fill="#141210" stroke="#FFFFFF" stroke-opacity="0.1"/>
+  <rect x="290" y="130" width="160" height="210" fill="#141210" stroke="#FFFFFF" stroke-opacity="0.1"/>
+
+  <text x="30" y="40" font-family="'Space Grotesk', monospace" font-size="11" fill="#C59B48">02 // GEOMETRIA URBANA</text>
+  <text x="570" y="40" font-family="'Space Grotesk', monospace" font-size="11" fill="#71717A" text-anchor="end">ARQUITETURA &amp; SOMBRA</text>
+</svg>
+

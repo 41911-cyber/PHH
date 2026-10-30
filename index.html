@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pablo Henrick Rocha da Silva — Portfólio Autoral</title>
+  
+  <!-- SEO & Metadados -->
+  <meta name="description" content="Portfólio pessoal e autoral de Pablo Henrick Rocha da Silva. Desenvolvedor Criativo, Designer Visual e Especialista em Experiências Digitais Interativas 3D.">
+  <meta name="author" content="Pablo Henrick Rocha da Silva">
+  <meta name="theme-color" content="#09090b">
+
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pablo Henrick Rocha da Silva — Portfólio Autoral">
+  <meta property="og:description" content="Experiências digitais memoráveis com Three.js, GSAP e Design Editorial de Alto Padrão.">
+  
+  <!-- Favicon com Monograma PH -->
+  <link rel="icon" type="image/svg+xml" href="assets/monogram.svg">
+
+  <!-- Tipografia de Alto Padrão (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Folha de Estilos Principal -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Bibliotecas Externas via CDN -->
+  <!-- Three.js (Motor 3D) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- GSAP & ScrollTrigger (Animações Cinemáticas) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="theme-dark">
+
+  <!-- Cursor Personalizado de Alta Precisão -->
+  <div class="custom-cursor" id="customCursor" aria-hidden="true">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+  </div>
+
+  <!-- Camada de Ruído Analógico Texturizado -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Container Tridimensional Three.js (Fixo ao Fundo) -->
+  <div id="webgl-container" aria-hidden="true"></div>
+
+  <!-- Barra de Progresso de Rolagem Superior -->
+  <div class="scroll-progress-bar" id="scrollProgress"></div>
+
+  <!-- ==========================================
+       CABEÇALHO & NAVEGAÇÃO PREMIUM
+       ========================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-container">
+      
+      <!-- Monograma e Assinatura da Marca Pessoal -->
+      <a href="#home" class="brand-monogram" aria-label="Pablo Henrick Rocha da Silva - Início">
+        <div class="monogram-icon-wrapper">
+          <img src="assets/monogram.svg" alt="Monograma PH" class="monogram-svg-img">
+        </div>
+        <div class="brand-text-block">
+          <span class="brand-name">Pablo Henrick</span>
+          <span class="brand-sub">Rocha da Silva</span>
+        </div>
+      </a>
+
+      <!-- Status de Disponibilidade em Tempo Real -->
+      <div class="status-indicator-pill" title="Status profissional atual">
+        <span class="status-dot"></span>
+        <span class="status-text">Disponível para novos projetos</span>
+      </div>
+
+      <!-- Menu Principal Desktop -->
+      <nav class="desktop-nav" aria-label="Navegação Principal">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active"><span class="nav-num">00</span> Início</a></li>
+          <li><a href="#sobre" class="nav-link"><span class="nav-num">01</span> Sobre</a></li>
+          <li><a href="#habilidades" class="nav-link"><span class="nav-num">02</span> Habilidades</a></li>
+          <li><a href="#projetos" class="nav-link"><span class="nav-num">03</span> Projetos</a></li>
+          <li><a href="#experiencias" class="nav-link"><span class="nav-num">04</span> Trajetória</a></li>
+          <li><a href="#formacao" class="nav-link"><span class="nav-num">05</span> Formação</a></li>
+          <li><a href="#galeria" class="nav-link"><span class="nav-num">06</span> Galeria</a></li>
+          <li><a href="#contato" class="nav-link"><span class="nav-num">07</span> Contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- Ações Rápidas (Tema Claro/Escuro & Contato) -->
+      <div class="header-actions">
+        <!-- Alternador de Tema Claro / Escuro -->
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Alternar tema claro e escuro" title="Alternar tema">
+          <i data-lucide="moon" class="theme-icon icon-moon"></i>
+          <i data-lucide="sun" class="theme-icon icon-sun"></i>
+        </button>
+
+        <!-- Botão Magnético de Ação Direta -->
+        <a href="#contato" class="header-cta-btn magnetic-btn">
+          <span>Iniciar Contato</span>
+          <i data-lucide="arrow-up-right"></i>
+        </a>
+
+        <!-- Botão Menu Mobile Hambúrguer -->
+        <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Menu Mobile Tela Cheia (Overlay Cinematográfico) -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay">
+    <div class="mobile-nav-backdrop"></div>
+    <div class="mobile-nav-content">
+      <div class="mobile-nav-header">
+        <div class="brand-monogram">
+          <img src="assets/monogram.svg" alt="PH" class="monogram-svg-img">
+          <span class="brand-name">Pablo Henrick</span>
+        </div>
+        <button class="mobile-nav-close" id="mobileCloseBtn" aria-label="Fechar menu">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <nav class="mobile-nav-links">
+        <a href="#home" class="mobile-link"><span class="mobile-num">00</span> Início</a>
+        <a href="#sobre" class="mobile-link"><span class="mobile-num">01</span> Sobre Mim</a>
+        <a href="#habilidades" class="mobile-link"><span class="mobile-num">02</span> Habilidades</a>
+        <a href="#projetos" class="mobile-link"><span class="mobile-num">03</span> Projetos</a>
+        <a href="#experiencias" class="mobile-link"><span class="mobile-num">04</span> Experiências</a>
+        <a href="#formacao" class="mobile-link"><span class="mobile-num">05</span> Formação</a>
+        <a href="#galeria" class="mobile-link"><span class="mobile-num">06</span> Galeria</a>
+        <a href="#contato" class="mobile-link"><span class="mobile-num">07</span> Contato</a>
+      </nav>
+
+      <div class="mobile-nav-footer">
+        <div class="mobile-location">
+          <span class="loc-badge">BRASIL // GLOBAL</span>
+          <span class="clock-display" id="localClockMobile">--:--:--</span>
+        </div>
+        <div class="mobile-socials">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i data-lucide="github"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL DO SITE -->
+  <main class="site-main" id="mainContent">
+
+    <!-- ==========================================
+         SEÇÃO 0: HERO (TELA INICIAL CINEMATOGRÁFICA)
+         ========================================== -->
+    <section class="hero-section" id="home">
+      <div class="hero-content-wrapper">
+        
+        <!-- Tarjeta Editorial Superior -->
+        <div class="hero-eyebrow-container" data-gsap="fade-up">
+          <span class="eyebrow-tag">PORTFÓLIO AUTORAL // EDIÇÃO 2024 - 2025</span>
+          <span class="eyebrow-divider">/</span>
+          <span class="eyebrow-role">DESIGNER &amp; DESENVOLVEDOR CRIATIVO</span>
+        </div>
+
+        <!-- Tipografia Monumental do Nome com Identidade Autoral -->
+        <div class="hero-title-container">
+          <h1 class="hero-headline">
+            <span class="hero-row hero-row-first" data-gsap="char-reveal">
+              PABLO HENRICK
+            </span>
+            <span class="hero-row hero-row-second" data-gsap="char-reveal">
+              <span class="outline-text">ROCHA</span> DA SILVA
+            </span>
+          </h1>
+        </div>
+
+        <!-- Frase de Apresentação Personalizável de Alto Impacto -->
+        <!-- [EDITÁVEL]: Você pode personalizar o texto do manifesto abaixo -->
+        <div class="hero-manifesto-container" data-gsap="fade-up" data-delay="0.3">
+          <p class="hero-manifesto">
+            Arquiteto de experiências digitais imersivas, fundindo sofisticação estética, tipografia refinada, código de alta performance e interação tridimensional fluida em cada criação.
+          </p>
+        </div>
+
+        <!-- Botões de Ação do Hero -->
+        <div class="hero-actions-container" data-gsap="fade-up" data-delay="0.5">
+          <a href="#projetos" class="cta-primary magnetic-btn" id="exploreBtn">
+            <span class="btn-text">Explorar Obras Autorais</span>
+            <span class="btn-icon-wrapper">
+              <i data-lucide="compass"></i>
+            </span>
+          </a>
+
+          <a href="#sobre" class="cta-secondary magnetic-btn">
+            <span class="btn-text">Conhecer Trajetória</span>
+            <i data-lucide="arrow-down"></i>
+          </a>
+        </div>
+
+        <!-- Barra de Metadados Inferior do Hero -->
+        <div class="hero-meta-bar" data-gsap="fade-in" data-delay="0.7">
+          <div class="meta-item">
+            <span class="meta-label">COORDENADAS</span>
+            <span class="meta-value">23° 32' S / 46° 38' W</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">HORÁRIO LOCAL</span>
+            <span class="meta-value clock-display" id="localClockHero">--:--:-- BRT</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">ESPECIALIDADE</span>
+            <span class="meta-value">Three.js • GSAP • UI/UX Design</span>
+          </div>
+          <div class="scroll-down-hint">
+            <span class="scroll-hint-text">ROLE PARA EXPLORAR</span>
+            <div class="scroll-hint-line"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 1: SOBRE MIM (HISTÓRIA E VISÃO)
+         ========================================== -->
+    <section class="section-block about-section" id="sobre">
+      <div class="section-container">
+        
+        <!-- Cabeçalho Editorial da Seção -->
+        <div class="section-header" data-gsap="fade-up">
+          <div class="section-badge">
+            <span class="badge-num">01</span>
+            <span class="badge-line"></span>
+            <span class="badge-label">ORIGEM &amp; VISÃO AUTORAL</span>
+          </div>
+          <h2 class="section-title">A intersecção entre arte digital e rigor técnico.</h2>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Coluna Visual / Retrato Editorial -->
+          <div class="about-media-col" data-gsap="fade-right">
+            <div class="portrait-card-wrapper card-3d-tilt">
+              
+              <div class="portrait-frame">
+                <!-- [EDITÁVEL]: Substitua assets/avatar-placeholder.svg pela sua foto real caso deseje -->
+                <img src="assets/avatar-placeholder.svg" alt="Retrato Oficial de Pablo Henrick Rocha da Silva" class="portrait-image">
+                <div class="portrait-grain"></div>
+              </div>
+
+              <!-- Cartão Flutuante de Credencial -->
+              <div class="portrait-floating-tag">
+                <div class="tag-monogram">
+                  <img src="assets/monogram.svg" alt="PH">
+                </div>
+                <div class="tag-info">
+                  <span class="tag-title">Pablo Henrick</span>
+                  <span class="tag-role">Criador Digital Autoral</span>
+                </div>
+              </div>
+
+              <div class="portrait-corner-brackets">
+                <span class="bracket top-left"></span>
+                <span class="bracket top-right"></span>
+                <span class="bracket bottom-left"></span>
+                <span class="bracket bottom-right"></span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Coluna Narrativa Editorial -->
+          <div class="about-text-col" data-gsap="fade-left">
+            
+            <div class="editorial-lead-quote">
+              <span class="quote-mark">“</span>
+              <p>
+                Não construo apenas interfaces funcionais; projeto atmosferas digitais onde cada milissegundo de animação e cada linha de código comunicam intenção, elegância e identidade.
+              </p>
+            </div>
+
+            <div class="editorial-body">
+              <!-- [EDITÁVEL]: Espaço para personalizar sua história pessoal e profissional -->
+              <p>
+                Olá! Meu nome é <strong>Pablo Henrick Rocha da Silva</strong>. Sou um desenvolvedor criativo e designer apaixonado pela criação de experiências web tridimensionais, interfaces ricas e sistemas de design de excelência.
+              </p>
+              <p>
+                Com formação fundamentada na ciência da computação e olhos atentos à direção de arte contemporânea, uno a precisão da engenharia de software à sensibilidade estética dos estúdios mais prestigiados do mundo. Meu foco é desenvolver soluções memoráveis, livres de templates genéricos e fórmulas recicladas.
+              </p>
+              <p>
+                Acredito que a tecnologia mais impressionante é aquela que parece mágica para quem a utiliza, sustentada por uma arquitetura robusta, código limpo e atenção obsessiva aos detalhes.
+              </p>
+            </div>
+
+            <!-- Assinatura Oficial Visual -->
+            <div class="about-signature-block">
+              <div class="signature-caption">ASSINATURA VISUAL AUTORAL</div>
+              <img src="assets/signature.svg" alt="Assinatura Pablo Henrick" class="signature-vector-img">
+              <div class="signature-name-sub">Pablo Henrick Rocha da Silva</div>
+            </div>
+
+            <!-- Métricas / Contadores Animados -->
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <span class="metric-number" data-counter="100" data-suffix="%">0%</span>
+                <span class="metric-label">Dedicação &amp; Autoria</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-number" data-counter="60" data-suffix=" FPS">0</span>
+                <span class="metric-label">Performance 3D Fluida</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-number" data-counter="100" data-suffix="%">0%</span>
+                <span class="metric-label">Design Responsivo &amp; Puro</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 2: HABILIDADES (ARSENAL TÉCNICO)
+         ========================================== -->
+    <section class="section-block skills-section" id="habilidades">
+      <div class="section-container">
+        
+        <div class="section-header" data-gsap="fade-up">
+          <div class="section-badge">
+            <span class="badge-num">02</span>
+            <span class="badge-line"></span>
+            <span class="badge-label">ARSENAL &amp; COMPETÊNCIAS</span>
+          </div>
+          <h2 class="section-title">Domínio técnico refinado para projetos de alta complexidade.</h2>
+          <p class="section-subtitle">
+            Combinação equilibrada entre tecnologias modernas de desenvolvimento, renderização tridimensional e sensibilidade de produto.
+          </p>
+        </div>
+
+        <!-- Grade de Cartões de Competência com Efeito 3D Tilt -->
+        <div class="skills-cards-grid">
+          
+          <!-- Card 1: Creative Front-End & 3D Web -->
+          <div class="skill-category-card card-3d-tilt" data-gsap="fade-up" data-delay="0.1">
+            <div class="card-glow-layer"></div>
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i data-lucide="box"></i>
+              </div>
+              <span class="skill-card-code">CORE // 01</span>
+            </div>
+            <h3 class="skill-card-title">Creative Front-End &amp; 3D</h3>
+            <p class="skill-card-desc">
+              Desenvolvimento de interfaces imersivas, renderização WebGL e experiências interativas ricas e performáticas.
+            </p>
+            <div class="skill-pills-list">
+              <span class="skill-pill">Three.js</span>
+              <span class="skill-pill">GSAP / ScrollTrigger</span>
+              <span class="skill-pill">WebGL &amp; Shaders</span>
+              <span class="skill-pill">JavaScript ES6+</span>
+              <span class="skill-pill">HTML5 Semântico</span>
+              <span class="skill-pill">CSS3 Moderno &amp; SASS</span>
+            </div>
+            <div class="skill-card-footer">
+              <span class="level-indicator-label">Foco: Excelência Visual &amp; 60 FPS</span>
+            </div>
+          </div>
+
+          <!-- Card 2: UI/UX & Design Editorial -->
+          <div class="skill-category-card card-3d-tilt" data-gsap="fade-up" data-delay="0.2">
+            <div class="card-glow-layer"></div>
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i data-lucide="palette"></i>
+              </div>
+              <span class="skill-card-code">CORE // 02</span>
+            </div>
+            <h3 class="skill-card-title">UI/UX &amp; Direção de Arte</h3>
+            <p class="skill-card-desc">
+              Concepção visual de alto padrão, sistemas de design consistentes, tipografia editorial e arquitetura de informação intuitiva.
+            </p>
+            <div class="skill-pills-list">
+              <span class="skill-pill">Figma Avançado</span>
+              <span class="skill-pill">Design Systems</span>
+              <span class="skill-pill">Tipografia Editorial</span>
+              <span class="skill-pill">Wireframing &amp; Protótipos</span>
+              <span class="skill-pill">Micro-interações</span>
+              <span class="skill-pill">Grid Systems Suíços</span>
+            </div>
+            <div class="skill-card-footer">
+              <span class="level-indicator-label">Foco: Identidade &amp; Sofisticação</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Engenharia & Performance -->
+          <div class="skill-category-card card-3d-tilt" data-gsap="fade-up" data-delay="0.3">
+            <div class="card-glow-layer"></div>
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i data-lucide="cpu"></i>
+              </div>
+              <span class="skill-card-code">CORE // 03</span>
+            </div>
+            <h3 class="skill-card-title">Engenharia &amp; Performance</h3>
+            <p class="skill-card-desc">
+              Código limpo, arquitetura escalável, otimização de ativos para carregamento instantâneo e conformidade com acessibilidade.
+            </p>
+            <div class="skill-pills-list">
+              <span class="skill-pill">Clean Architecture</span>
+              <span class="skill-pill">Performance Web / Core Vitals</span>
+              <span class="skill-pill">Responsividade Fluida</span>
+              <span class="skill-pill">Acessibilidade (a11y)</span>
+              <span class="skill-pill">SEO Estruturado</span>
+              <span class="skill-pill">Otimização de Render</span>
+            </div>
+            <div class="skill-card-footer">
+              <span class="level-indicator-label">Foco: Rapidez, Robustez &amp; Escala</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Ferramentas & Metodologias -->
+          <div class="skill-category-card card-3d-tilt" data-gsap="fade-up" data-delay="0.4">
+            <div class="card-glow-layer"></div>
+            <div class="skill-card-header">
+              <div class="skill-icon-box">
+                <i data-lucide="workflow"></i>
+              </div>
+              <span class="skill-card-code">CORE // 04</span>
+            </div>
+            <h3 class="skill-card-title">Ferramentas &amp; Métodos</h3>
+            <p class="skill-card-desc">
+              Fluxos de trabalho profissionais com versionamento seguro, modelagem de ativos 3D e metodologias ágeis de desenvolvimento.
+            </p>
+            <div class="skill-pills-list">
+              <span class="skill-pill">Git / GitHub Workflow</span>
+              <span class="skill-pill">Blender (Assets 3D)</span>
+              <span class="skill-pill">VS Code / DevTools</span>
+              <span class="skill-pill">Node.js &amp; NPM/Vite</span>
+              <span class="skill-pill">Metodologias Ágeis</span>
+              <span class="skill-pill">CI/CD &amp; Deploy</span>
+            </div>
+            <div class="skill-card-footer">
+              <span class="level-indicator-label">Foco: Produtividade &amp; Qualidade</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 3: PROJETOS (TRABALHOS SELECIONADOS)
+         ========================================== -->
+    <section class="section-block projects-section" id="projetos">
+      <div class="section-container">
+        
+        <div class="section-header" data-gsap="fade-up">
+          <div class="section-badge">
+            <span class="badge-num">03</span>
+            <span class="badge-line"></span>
+            <span class="badge-label">OBRAS &amp; CRIAÇÕES AUTORAIS</span>
+          </div>
+          <h2 class="section-title">Trabalhos com identidade única e impacto comprovado.</h2>
+          <p class="section-subtitle">
+            Cada projeto representa um estudo aprofundado em usabilidade, estética e engenharia de software de ponta.
+          </p>
+        </div>
+
+        <div class="projects-showcase-list">
+          
+          <!-- ==============================
+               PROJETO 01 (EDITÁVEL)
+               ============================== -->
+          <article class="project-showcase-card" data-gsap="fade-up">
+            <div class="project-card-inner">
+              
+              <!-- Mídia do Projeto -->
+              <div class="project-media-wrapper card-3d-tilt">
+                <div class="project-media-frame">
+                  <!-- [EDITÁVEL]: Altere o src para sua captura de projeto real -->
+                  <img src="assets/project1.svg" alt="Projeto 01 - Experiência Web 3D Imersiva" class="project-image">
+                  <div class="project-overlay-glow"></div>
+                </div>
+                <div class="project-floating-badge">
+                  <i data-lucide="sparkles"></i>
+                  <span>THREE.JS &amp; WEBGL</span>
+                </div>
+              </div>
+
+              <!-- Conteúdo Editorial do Projeto -->
+              <div class="project-info-wrapper">
+                <div class="project-meta-top">
+                  <span class="project-index">01 // EXPERIMENTO 3D</span>
+                  <span class="project-year">2024</span>
+                </div>
+
+                <h3 class="project-title">Cosmos Dimension — Plataforma Imersiva 3D</h3>
+                
+                <p class="project-description">
+                  Ambiente tridimensional interativo concebido para exploração espacial em tempo real. Utiliza Three.js com shaders customizados de iluminação volumétrica, materiais PBR metálicos, controle por inércia do cursor e sincronização de som procedural.
+                </p>
+
+                <div class="project-tech-tags">
+                  <span class="tech-tag">Three.js</span>
+                  <span class="tech-tag">GSAP</span>
+                  <span class="tech-tag">JavaScript ES6+</span>
+                  <span class="tech-tag">WebGL</span>
+                  <span class="tech-tag">Design 3D</span>
+                </div>
+
+                <div class="project-actions">
+                  <a href="#contato" class="project-link-btn primary-project-btn magnetic-btn">
+                    <span>Explorar Projeto</span>
+                    <i data-lucide="arrow-up-right"></i>
+                  </a>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link-btn secondary-project-btn magnetic-btn">
+                    <i data-lucide="github"></i>
+                    <span>Repositório</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- ==============================
+               PROJETO 02 (EDITÁVEL)
+               ============================== -->
+          <article class="project-showcase-card reverse-layout" data-gsap="fade-up">
+            <div class="project-card-inner">
+              
+              <div class="project-media-wrapper card-3d-tilt">
+                <div class="project-media-frame">
+                  <!-- [EDITÁVEL]: Altere o src para sua captura de projeto real -->
+                  <img src="assets/project2.svg" alt="Projeto 02 - Design System Modular & UI Architecture" class="project-image">
+                  <div class="project-overlay-glow"></div>
+                </div>
+                <div class="project-floating-badge">
+                  <i data-lucide="layers"></i>
+                  <span>SISTEMA DE DESIGN</span>
+                </div>
+              </div>
+
+              <div class="project-info-wrapper">
+                <div class="project-meta-top">
+                  <span class="project-index">02 // ARQUITETURA UI</span>
+                  <span class="project-year">2024</span>
+                </div>
+
+                <h3 class="project-title">Aura Token System — Design System Corporativo</h3>
+                
+                <p class="project-description">
+                  Ecossistema completo de tokens e componentes de interface voltados para empresas de tecnologia de alta escala. Foco em tipografia rigorosa, contraste cromático acessível (WCAG AAA), documentação interativa e modularidade CSS.
+                </p>
+
+                <div class="project-tech-tags">
+                  <span class="tech-tag">Figma Tokens</span>
+                  <span class="tech-tag">CSS3 Variables</span>
+                  <span class="tech-tag">Design Systems</span>
+                  <span class="tech-tag">Acessibilidade</span>
+                  <span class="tech-tag">Documentação</span>
+                </div>
+
+                <div class="project-actions">
+                  <a href="#contato" class="project-link-btn primary-project-btn magnetic-btn">
+                    <span>Ver Estudo de Caso</span>
+                    <i data-lucide="arrow-up-right"></i>
+                  </a>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link-btn secondary-project-btn magnetic-btn">
+                    <i data-lucide="github"></i>
+                    <span>Ver Tokens</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- ==============================
+               PROJETO 03 (EDITÁVEL)
+               ============================== -->
+          <article class="project-showcase-card" data-gsap="fade-up">
+            <div class="project-card-inner">
+              
+              <div class="project-media-wrapper card-3d-tilt">
+                <div class="project-media-frame">
+                  <!-- [EDITÁVEL]: Altere o src para sua captura de projeto real -->
+                  <img src="assets/project3.svg" alt="Projeto 03 - Revista Digital Editorial" class="project-image">
+                  <div class="project-overlay-glow"></div>
+                </div>
+                <div class="project-floating-badge">
+                  <i data-lucide="book-open"></i>
+                  <span>EDITORIAL &amp; GSAP</span>
+                </div>
+              </div>
+
+              <div class="project-info-wrapper">
+                <div class="project-meta-top">
+                  <span class="project-index">03 // PUBLICAÇÃO DIGITAL</span>
+                  <span class="project-year">2024</span>
+                </div>
+
+                <h3 class="project-title">Chronicles of Light — Experiência Editorial</h3>
+                
+                <p class="project-description">
+                  Portal de ensaios visuais e design gráfico com rolagem horizontal cinemática conduzida por GSAP ScrollTrigger. Possui transições fluidas de páginas, revelação dinâmica de textos e layouts tipográficos inspirados em publicações impressas europeias.
+                </p>
+
+                <div class="project-tech-tags">
+                  <span class="tech-tag">GSAP ScrollTrigger</span>
+                  <span class="tech-tag">Vanilla JS</span>
+                  <span class="tech-tag">Tipografia Avant-Garde</span>
+                  <span class="tech-tag">CSS Grid Avançado</span>
+                </div>
+
+                <div class="project-actions">
+                  <a href="#contato" class="project-link-btn primary-project-btn magnetic-btn">
+                    <span>Acessar Publicação</span>
+                    <i data-lucide="arrow-up-right"></i>
+                  </a>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link-btn secondary-project-btn magnetic-btn">
+                    <i data-lucide="github"></i>
+                    <span>Código Fonte</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- ==============================
+               PROJETO 04 (EDITÁVEL)
+               ============================== -->
+          <article class="project-showcase-card reverse-layout" data-gsap="fade-up">
+            <div class="project-card-inner">
+              
+              <div class="project-media-wrapper card-3d-tilt">
+                <div class="project-media-frame">
+                  <!-- [EDITÁVEL]: Altere o src para sua captura de projeto real -->
+                  <img src="assets/project4.svg" alt="Projeto 04 - Plataforma FinTech Analítica" class="project-image">
+                  <div class="project-overlay-glow"></div>
+                </div>
+                <div class="project-floating-badge">
+                  <i data-lucide="trending-up"></i>
+                  <span>DASHBOARD ANALÍTICO</span>
+                </div>
+              </div>
+
+              <div class="project-info-wrapper">
+                <div class="project-meta-top">
+                  <span class="project-index">04 // FINTECH &amp; DADOS</span>
+                  <span class="project-year">2023 - 2024</span>
+                </div>
+
+                <h3 class="project-title">Vanguard Analytics — Painel Financeiro Premium</h3>
+                
+                <p class="project-description">
+                  Interface de análise de ativos patrimoniais e índices econômicos globais com visualização vetorial em tempo real, filtros dinâmicos de alta velocidade e design escuro sofisticado com elementos dourados de alta legibilidade.
+                </p>
+
+                <div class="project-tech-tags">
+                  <span class="tech-tag">Data Visualization</span>
+                  <span class="tech-tag">JavaScript Modular</span>
+                  <span class="tech-tag">High Performance UI</span>
+                  <span class="tech-tag">Dark Luxury UI</span>
+                </div>
+
+                <div class="project-actions">
+                  <a href="#contato" class="project-link-btn primary-project-btn magnetic-btn">
+                    <span>Visualizar Painel</span>
+                    <i data-lucide="arrow-up-right"></i>
+                  </a>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link-btn secondary-project-btn magnetic-btn">
+                    <i data-lucide="github"></i>
+                    <span>Código Fonte</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 4: EXPERIÊNCIAS (TRAJETÓRIA PROFISSIONAL)
+         ========================================== -->
+    <section class="section-block experience-section" id="experiencias">
+      <div class="section-container">
+        
+        <div class="section-header" data-gsap="fade-up">
+          <div class="section-badge">
+            <span class="badge-num">04</span>
+            <span class="badge-line"></span>
+            <span class="badge-label">TRAJETÓRIA &amp; ATUAÇÃO</span>
+          </div>
+          <h2 class="section-title">Evolução profissional e contribuições de relevância.</h2>
+          <p class="section-subtitle">
+            Caminho construído através da busca incessante pelo aperfeiçoamento contínuo e resolução de desafios com maestria.
+          </p>
+        </div>
+
+        <div class="timeline-container">
+          
+          <!-- Item de Experiência 1 (Atual) -->
+          <!-- [EDITÁVEL]: Substitua pelos dados da sua experiência profissional -->
+          <div class="timeline-item" data-gsap="fade-up">
+            <div class="timeline-period-col">
+              <span class="timeline-year">2023 — PRESENTE</span>
+              <span class="timeline-badge-status current">EM ANDAMENTO</span>
+            </div>
+            <div class="timeline-dot-col">
+              <div class="timeline-marker"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-content-col card-3d-tilt">
+              <div class="timeline-role-header">
+                <h3 class="timeline-role">Desenvolvedor Criativo &amp; UI Specialist</h3>
+                <span class="timeline-company">Atuação Autoral &amp; Consultoria Independente</span>
+              </div>
+              <p class="timeline-description">
+                Liderança no desenvolvimento de websites de alto padrão, plataformas tridimensionais com Three.js e sistemas visuais para marcas e clientes que exigem diferenciação de mercado. Otimização de tempos de carregamento, responsividade e animações GSAP de nível internacional.
+              </p>
+              <div class="timeline-tech-stack">
+                <span>Three.js</span>
+                <span>GSAP</span>
+                <span>HTML5 / CSS3</span>
+                <span>Figma</span>
+                <span>JavaScript ES6+</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item de Experiência 2 -->
+          <div class="timeline-item" data-gsap="fade-up">
+            <div class="timeline-period-col">
+              <span class="timeline-year">2022 — 2023</span>
+              <span class="timeline-badge-status completed">CONCLUÍDO</span>
+            </div>
+            <div class="timeline-dot-col">
+              <div class="timeline-marker"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-content-col card-3d-tilt">
+              <div class="timeline-role-header">
+                <h3 class="timeline-role">Desenvolvedor Front-End &amp; UI Designer</h3>
+                <span class="timeline-company">Projetos Selecionados &amp; Parcerias Digitais</span>
+              </div>
+              <p class="timeline-description">
+                Criação de landing pages interativas, dashboards corporativos e protótipos de alta fidelidade. Implementação de boas práticas de arquitetura CSS, integração de APIs e garantia de acessibilidade e consistência visual entre dispositivos.
+              </p>
+              <div class="timeline-tech-stack">
+                <span>Front-End</span>
+                <span>UI/UX Design</span>
+                <span>CSS Grid &amp; Flexbox</span>
+                <span>Git / GitHub</span>
+                <span>Interatividade</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item de Experiência 3 -->
+          <div class="timeline-item" data-gsap="fade-up">
+            <div class="timeline-period-col">
+              <span class="timeline-year">2021 — 2022</span>
+              <span class="timeline-badge-status completed">CONCLUÍDO</span>
+            </div>
+            <div class="timeline-dot-col">
+              <div class="timeline-marker"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-content-col card-3d-tilt">
+              <div class="timeline-role-header">
+                <h3 class="timeline-role">Início da Trajetória &amp; Pesquisa Tecnológica</h3>
+                <span class="timeline-company">Laboratórios de Desenvolvimento &amp; Estudos Práticos</span>
+              </div>
+              <p class="timeline-description">
+                Imersão intensiva em lógica de programação, engenharia web moderna, fundamentos do design gráfico suíço e experimentações iniciais com animações vetoriais e gráficos 3D no navegador.
+              </p>
+              <div class="timeline-tech-stack">
+                <span>Fundamentos Web</span>
+                <span>Lógica de Algoritmos</span>
+                <span>Design Editorial</span>
+                <span>Pesquisa Autoral</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 5: FORMAÇÃO (CURSOS E CERTIFICAÇÕES)
+         ========================================== -->
+    <section class="section-block education-section" id="formacao">
+      <div class="section-container">
+        
+        <div class="section-header" data-gsap="fade-up">
+          <div class="section-badge">
+            <span class="badge-num">05</span>
+            <span class="badge-line"></span>
+            <span class="badge-label">FORMAÇÃO &amp; CONHECIMENTO</span>
+          </div>
+          <h2 class="section-title">Base acadêmica sólida e aprendizado contínuo.</h2>
+          <p class="section-subtitle">
+            A união entre fundamentos teóricos rigorosos e a constante atualização nas fronteiras da tecnologia criativa.
+          </p>
+        </div>
+
+        <div class="education-grid">
+          
+          <!-- Card de Formação 1 (Acadêmica) -->
+          <!-- [EDITÁVEL]: Espaço para preencher sua graduação ou curso técnico real -->
+          <div class="education-card card-3d-tilt" data-gsap="fade-up" data-delay="0.1">
+            <div class="education-card-top">
+              <div class="edu-icon-badge">
+                <i data-lucide="graduation-cap"></i>
+              </div>
+              <span class="edu-type">GRADUAÇÃO / ENSINO SUPERIOR</span>
+            </div>
+            <h3 class="edu-title">Ciência da Computação / Tecnologia da Informação</h3>
+            <span class="edu-institution">Instituição de Ensino Superior</span>
+            <p class="edu-description">
+              Formação com ênfase em estruturas de dados, algoritmos, arquitetura de computadores, engenharia de software e design de interação humano-computador.
+            </p>
+            <div class="edu-footer">
+              <span class="edu-status-pill">
+                <i data-lucide="check-circle-2"></i> Formação Acadêmica
+              </span>
+            </div>
+          </div>
+
+          <!-- Card de Certificação 2 -->
+          <div class="education-card card-3d-tilt" data-gsap="fade-up" data-delay="0.2">
+            <div class="education-card-top">
+              <div class="edu-icon-badge">
+                <i data-lucide="award"></i>
+              </div>
+              <span class="edu-type">ESPECIALIZAÇÃO AVANÇADA</span>
+            </div>
+            <h3 class="edu-title">Three.js, WebGL &amp; Creative Coding</h3>
+            <span class="edu-institution">Especializações &amp; Masterclasses Internacionais</span>
+            <p class="edu-description">
+              Estudo avançado de renderização gráfica no navegador, materiais PBR, shaders customizados em GLSL, iluminação de estúdio e otimização de performance tridimensional.
+            </p>
+            <div class="edu-footer">
+              <span class="edu-status-pill">
+                <i data-lucide="check-circle-2"></i> Certificado Verificado
+              </span>
+            </div>
+          </div>
+
+          <!-- Card de Certificação 3 -->
+          <div class="education-card card-3d-tilt" data-gsap="fade-up" data-delay="0.3">
+            <div class="education-card-top">
+              <div class="edu-icon-badge">
+                <i data-lucide="award"></i>
+              </div>
+              <span class="edu-type">CERTIFICAÇÃO PROFISSIONAL</span>
+            </div>
+            <h3 class="edu-title">Design System &amp; Arquitetura UI/UX</h3>
+            <span class="edu-institution">Imersões de Design &amp; Produto</span>
+            <p class="edu-description">
+              Criação de ecossistemas visuais escaláveis, especificação de tokens, prototipagem avançada no Figma, testes de usabilidade e padrões de acessibilidade universal.
+            </p>
+            <div class="edu-footer">
+              <span class="edu-status-pill">
+                <i data-lucide="check-circle-2"></i> Certificado Verificado
+              </span>
+            </div>
+          </div>
+
+          <!-- Card de Certificação 4 -->
+          <div class="education-card card-3d-tilt" data-gsap="fade-up" data-delay="0.4">
+            <div class="education-card-top">
+              <div class="edu-icon-badge">
+                <i data-lucide="award"></i>
+              </div>
+              <span class="edu-type">PROGRAMA CONTÍNUO</span>
+            </div>
+            <h3 class="edu-title">JavaScript Moderno ES6+ &amp; Clean Code</h3>
+            <span class="edu-institution">Especialização Técnica Contínua</span>
+            <p class="edu-description">
+              Padrões de projeto assíncronos, programação funcional, modularização robusta, performance de runtime e refatoração estratégica de código.
+            </p>
+            <div class="edu-footer">
+              <span class="edu-status-pill">
+                <i data-lucide="check-circle-2"></i> Certificado Verificado
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 6: GALERIA (REGISTROS E MOMENTOS)
+         ========================================== -->
+    <section class="section-block gallery-section" id="galeria">
+      <div class="section-container">
+        
+        <div class="section-header" data-gsap="fade-up">
+          <div class="section-badge">
+            <span class="badge-num">06</span>
+            <span class="badge-line"></span>
+            <span class="badge-label">REGISTROS VISUAIS &amp; MOMENTOS</span>
+          </div>
+          <h2 class="section-title">Fotografias, processos, referências e vivências.</h2>
+          <p class="section-subtitle">
+            Um olhar atento sobre o mundo: ambientes de criação, arquitetura, referências estéticas e registros pessoais.
+          </p>
+        </div>
+
+        <!-- Filtros da Galeria -->
+        <div class="gallery-filters" data-gsap="fade-up">
+          <button class="filter-btn active" data-filter="all">Todos os Registros</button>
+          <button class="filter-btn" data-filter="workspace">Ambiente &amp; Foco</button>
+          <button class="filter-btn" data-filter="architecture">Arquitetura &amp; Luz</button>
+          <button class="filter-btn" data-filter="research">Estudos &amp; Teoria</button>
+        </div>
+
+        <!-- Grade Editorial de Fotos / Registros -->
+        <div class="gallery-masonry-grid">
+          
+          <!-- Foto 1 -->
+          <!-- [EDITÁVEL]: Substitua assets/gallery-1.svg pelas suas fotos reais -->
+          <div class="gallery-item-card card-3d-tilt" data-category="workspace" data-gsap="fade-up">
+            <div class="gallery-image-frame">
+              <img src="assets/gallery-1.svg" alt="Workspace e Ambiente Criativo" class="gallery-img">
+              <div class="gallery-item-overlay">
+                <div class="overlay-details">
+                  <span class="overlay-tag">WORKSPACE</span>
+                  <h4 class="overlay-title">Estúdio de Criação e Foco</h4>
+                  <p class="overlay-location">São Paulo, Brasil</p>
+                </div>
+                <button class="gallery-zoom-btn" aria-label="Ampliar imagem">
+                  <i data-lucide="maximize-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Foto 2 -->
+          <div class="gallery-item-card card-3d-tilt" data-category="architecture" data-gsap="fade-up">
+            <div class="gallery-image-frame">
+              <img src="assets/gallery-2.svg" alt="Geometria Urbana e Linhas de Concreto" class="gallery-img">
+              <div class="gallery-item-overlay">
+                <div class="overlay-details">
+                  <span class="overlay-tag">ARQUITETURA</span>
+                  <h4 class="overlay-title">Geometria Urbana &amp; Sombra</h4>
+                  <p class="overlay-location">Estudo de Formas Suíças</p>
+                </div>
+                <button class="gallery-zoom-btn" aria-label="Ampliar imagem">
+                  <i data-lucide="maximize-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Foto 3 -->
+          <div class="gallery-item-card card-3d-tilt" data-category="research" data-gsap="fade-up">
+            <div class="gallery-image-frame">
+              <img src="assets/gallery-3.svg" alt="Sessões de Código Noturno" class="gallery-img">
+              <div class="gallery-item-overlay">
+                <div class="overlay-details">
+                  <span class="overlay-tag">CODIFICAÇÃO</span>
+                  <h4 class="overlay-title">Vigília Criativa &amp; Código</h4>
+                  <p class="overlay-location">Sessões Imersivas 3D</p>
+                </div>
+                <button class="gallery-zoom-btn" aria-label="Ampliar imagem">
+                  <i data-lucide="maximize-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Foto 4 -->
+          <div class="gallery-item-card card-3d-tilt" data-category="research" data-gsap="fade-up">
+            <div class="gallery-image-frame">
+              <img src="assets/gallery-4.svg" alt="Design Systems e Livros" class="gallery-img">
+              <div class="gallery-item-overlay">
+                <div class="overlay-details">
+                  <span class="overlay-tag">BIBLIOTECA</span>
+                  <h4 class="overlay-title">Teoria de Design e Tipografia</h4>
+                  <p class="overlay-location">Acervo Bibliográfico</p>
+                </div>
+                <button class="gallery-zoom-btn" aria-label="Ampliar imagem">
+                  <i data-lucide="maximize-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Foto 5 -->
+          <div class="gallery-item-card card-3d-tilt" data-category="workspace" data-gsap="fade-up">
+            <div class="gallery-image-frame">
+              <img src="assets/gallery-5.svg" alt="Experimentos com Shaders e Óptica" class="gallery-img">
+              <div class="gallery-item-overlay">
+                <div class="overlay-details">
+                  <span class="overlay-tag">PESQUISA</span>
+                  <h4 class="overlay-title">Experimentos Ópticos e WebGL</h4>
+                  <p class="overlay-location">Laboratório Criativo</p>
+                </div>
+                <button class="gallery-zoom-btn" aria-label="Ampliar imagem">
+                  <i data-lucide="maximize-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Foto 6 -->
+          <div class="gallery-item-card card-3d-tilt" data-category="architecture" data-gsap="fade-up">
+            <div class="gallery-image-frame">
+              <img src="assets/gallery-6.svg" alt="Horizontes e Eventos" class="gallery-img">
+              <div class="gallery-item-overlay">
+                <div class="overlay-details">
+                  <span class="overlay-tag">HORIZONTES</span>
+                  <h4 class="overlay-title">Conexões Globais e Futuro</h4>
+                  <p class="overlay-location">Conferências Digitais</p>
+                </div>
+                <button class="gallery-zoom-btn" aria-label="Ampliar imagem">
+                  <i data-lucide="maximize-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Modal / Lightbox da Galeria (Visualização Ampliada) -->
+    <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
+      <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+      <div class="lightbox-modal">
+        <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Fechar visualização">
+          <i data-lucide="x"></i>
+        </button>
+        <div class="lightbox-image-container">
+          <img src="" alt="" id="lightboxImg">
+        </div>
+        <div class="lightbox-caption">
+          <h4 id="lightboxTitle">Título do Registro</h4>
+          <p id="lightboxSubtitle">Localização &amp; Detalhes</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SEÇÃO 7: CONTATO (CONEXÃO & CONVERSA)
+         ========================================== -->
+    <section class="section-block contact-section" id="contato">
+      <div class="section-container">
+        
+        <div class="section-header" data-gsap="fade-up">
+          <div class="section-badge">
+            <span class="badge-num">07</span>
+            <span class="badge-line"></span>
+            <span class="badge-label">CONEXÃO DIRETA</span>
+          </div>
+          <h2 class="section-title">Vamos construir algo memorável juntos?</h2>
+          <p class="section-subtitle">
+            Seja para criar uma nova identidade digital, desenvolver uma experiência 3D exclusiva ou discutir uma oportunidade, estou à disposição.
+          </p>
+        </div>
+
+        <div class="contact-main-grid">
+          
+          <!-- Coluna 1: Informações Diretas, E-mail & Redes -->
+          <div class="contact-direct-col" data-gsap="fade-right">
+            
+            <div class="direct-email-box card-3d-tilt">
+              <div class="email-box-badge">E-MAIL OFICIAL</div>
+              <!-- [EDITÁVEL]: Insira seu e-mail oficial aqui -->
+              <div class="email-address-wrapper">
+                <span class="email-text" id="emailToCopy">pablohenrick@email.com</span>
+              </div>
+              <button class="copy-email-btn magnetic-btn" id="copyEmailBtn" aria-label="Copiar endereço de e-mail">
+                <i data-lucide="copy" class="copy-icon"></i>
+                <span class="copy-btn-text">Copiar E-mail</span>
+              </button>
+              <div class="copy-toast" id="copyToast" aria-live="polite">E-mail copiado com sucesso!</div>
+            </div>
+
+            <!-- Canais de Redes Sociais com Links Diretos -->
+            <!-- [EDITÁVEL]: Atualize os links href com seus perfis oficiais -->
+            <div class="social-channels-grid">
+              
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-channel-card card-3d-tilt">
+                <div class="social-icon-wrapper">
+                  <i data-lucide="linkedin"></i>
+                </div>
+                <div class="social-info">
+                  <span class="social-name">LinkedIn</span>
+                  <span class="social-handle">/in/pablohenrick</span>
+                </div>
+                <i data-lucide="arrow-up-right" class="external-arrow"></i>
+              </a>
+
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-channel-card card-3d-tilt">
+                <div class="social-icon-wrapper">
+                  <i data-lucide="github"></i>
+                </div>
+                <div class="social-info">
+                  <span class="social-name">GitHub</span>
+                  <span class="social-handle">@pablohenrick</span>
+                </div>
+                <i data-lucide="arrow-up-right" class="external-arrow"></i>
+              </a>
+
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-channel-card card-3d-tilt">
+                <div class="social-icon-wrapper">
+                  <i data-lucide="instagram"></i>
+                </div>
+                <div class="social-info">
+                  <span class="social-name">Instagram</span>
+                  <span class="social-handle">@pablohenrick</span>
+                </div>
+                <i data-lucide="arrow-up-right" class="external-arrow"></i>
+              </a>
+
+              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="social-channel-card card-3d-tilt">
+                <div class="social-icon-wrapper">
+                  <i data-lucide="message-circle"></i>
+                </div>
+                <div class="social-info">
+                  <span class="social-name">WhatsApp</span>
+                  <span class="social-handle">Conversa Direta</span>
+                </div>
+                <i data-lucide="arrow-up-right" class="external-arrow"></i>
+              </a>
+
+            </div>
+
+            <!-- Widget de Horário e Localização -->
+            <div class="location-widget card-3d-tilt">
+              <div class="loc-header">
+                <span class="loc-dot"></span>
+                <span class="loc-title">BASE OPERACIONAL</span>
+              </div>
+              <div class="loc-body">
+                <div class="loc-city">São Paulo &amp; Brasil (Atendimento Global)</div>
+                <div class="loc-time" id="localClockContact">Horário: --:--:-- (GMT-3)</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Coluna 2: Formulário de Contato Elegante -->
+          <div class="contact-form-col" data-gsap="fade-left">
+            <div class="contact-form-wrapper card-3d-tilt">
+              
+              <div class="form-header-badge">
+                <i data-lucide="send"></i>
+                <span>MENSAGEM DIRETA</span>
+              </div>
+
+              <h3 class="form-title">Envie uma mensagem</h3>
+              <p class="form-desc">Preencha os campos abaixo para dar o primeiro passo em direção ao seu próximo projeto.</p>
+
+              <form class="contact-form" id="contactForm" novalidate>
+                
+                <div class="form-group">
+                  <label for="userName" class="form-label">Seu Nome / Empresa *</label>
+                  <div class="input-wrapper">
+                    <input type="text" id="userName" name="name" class="form-input" placeholder="Como prefere ser chamado?" required>
+                    <i data-lucide="user" class="input-icon"></i>
+                  </div>
+                  <span class="field-error-msg" id="nameError">Por favor, informe seu nome.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="userEmail" class="form-label">Seu E-mail *</label>
+                  <div class="input-wrapper">
+                    <input type="email" id="userEmail" name="email" class="form-input" placeholder="seuemail@exemplo.com" required>
+                    <i data-lucide="mail" class="input-icon"></i>
+                  </div>
+                  <span class="field-error-msg" id="emailError">Por favor, informe um e-mail válido.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="projectScope" class="form-label">Natureza do Projeto</label>
+                  <div class="input-wrapper select-wrapper">
+                    <select id="projectScope" name="scope" class="form-input form-select">
+                      <option value="portfolio-3d">Experiência Web 3D / Three.js</option>
+                      <option value="ui-design">UI/UX &amp; Design System</option>
+                      <option value="front-end">Desenvolvimento Front-End Premium</option>
+                      <option value="consultoria">Consultoria Técnica &amp; Direção Criativa</option>
+                      <option value="outro">Outro assunto / Conversa</option>
+                    </select>
+                    <i data-lucide="chevron-down" class="input-icon select-chevron"></i>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="userMessage" class="form-label">Mensagem *</label>
+                  <div class="input-wrapper textarea-wrapper">
+                    <textarea id="userMessage" name="message" rows="4" class="form-input form-textarea" placeholder="Descreva brevemente sua ideia, prazos ou objetivos..." required></textarea>
+                    <i data-lucide="message-square" class="input-icon textarea-icon"></i>
+                  </div>
+                  <span class="field-error-msg" id="messageError">Por favor, digite sua mensagem.</span>
+                </div>
+
+                <button type="submit" class="submit-form-btn magnetic-btn" id="submitBtn">
+                  <span class="submit-text">Enviar Mensagem</span>
+                  <i data-lucide="arrow-right" class="submit-icon"></i>
+                  <div class="btn-spinner" id="btnSpinner" aria-hidden="true"></div>
+                </button>
+
+                <!-- Feedback de Envio Sucesso -->
+                <div class="form-feedback-message" id="formSuccessMessage">
+                  <i data-lucide="check-circle" class="success-icon"></i>
+                  <div class="feedback-text">
+                    <strong>Mensagem enviada com sucesso!</strong>
+                    <span>Obrigado pelo contato. Retornarei em breve.</span>
+                  </div>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       RODAPÉ EDITORIAL AUTORAL
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      
+      <!-- Topo do Rodapé: Monograma Gigante com Assinatura -->
+      <div class="footer-top-brand">
+        <div class="footer-monogram-emblem">
+          <img src="assets/monogram.svg" alt="Monograma PH" class="footer-monogram-svg">
+        </div>
+        <div class="footer-signature-wrap">
+          <span class="footer-author-name">Pablo Henrick Rocha da Silva</span>
+          <span class="footer-author-role">Designer &amp; Desenvolvedor Criativo</span>
+        </div>
+      </div>
+
+      <!-- Divisor com Estilo Arquitetônico -->
+      <div class="footer-divider-line"></div>
+
+      <!-- Base do Rodapé: Copyright, Tecnologias e Voltar ao Topo -->
+      <div class="footer-bottom-row">
+        <div class="footer-copyright">
+          © <span id="currentYear">2024</span> Pablo Henrick Rocha da Silva. Todos os direitos reservados.
+        </div>
+
+        <div class="footer-colophon">
+          Construído com HTML5, CSS3, JavaScript, Three.js, GSAP &amp; Lucide Icons.
+        </div>
+
+        <div class="footer-back-to-top">
+          <a href="#home" class="back-to-top-btn magnetic-btn" aria-label="Voltar ao início">
+            <span>Voltar ao Topo</span>
+            <i data-lucide="arrow-up"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts do Projeto -->
+  <!-- Cena 3D Three.js -->
+  <script src="three-scene.js"></script>
+  <!-- Lógica Geral de Interatividade, Cursor e GSAP -->
+  <script src="script.js"></script>
+</body>
+</html>
+

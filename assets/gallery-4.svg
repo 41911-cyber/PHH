@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450" fill="none">
+  <defs>
+    <linearGradient id="g4Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161214" />
+      <stop offset="100%" stop-color="#241B20" />
+    </linearGradient>
+    <linearGradient id="gAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#g4Grad)" />
+  <rect width="596" height="446" x="2" y="2" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1.5" />
+  
+  <!-- Books, Typographic Monographs & Design Theory -->
+  <g transform="translate(150, 110)">
+    <rect x="0" y="80" width="300" height="130" rx="4" fill="#20181E" stroke="url(#gAmber)" stroke-width="1.2" stroke-opacity="0.6"/>
+    <line x1="20" y1="120" x2="280" y2="120" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1"/>
+    <text x="30" y="150" font-family="'Cinzel', serif" font-size="20" font-weight="700" fill="#FFFFFF">DESIGN SYSTEMS</text>
+    <text x="30" y="175" font-family="'Space Grotesk', sans-serif" font-size="12" fill="#FCD34D">TEORIA, FORMA &amp; FUNÇÃO</text>
+  </g>
+
+  <text x="30" y="40" font-family="'Space Grotesk', monospace" font-size="11" fill="#FCD34D">04 // TEORIA &amp; LIVROS</text>
+  <text x="570" y="40" font-family="'Space Grotesk', monospace" font-size="11" fill="#71717A" text-anchor="end">BIBLIOTECA PESSOAL</text>
+</svg>
+

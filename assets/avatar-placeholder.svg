@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141417" />
+      <stop offset="50%" stop-color="#1C1C22" />
+      <stop offset="100%" stop-color="#0E0E10" />
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2D299" />
+      <stop offset="100%" stop-color="#9C752B" />
+    </linearGradient>
+    <radialGradient id="spotlight" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#3A3730" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#141417" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="600" height="750" fill="url(#bgGrad)" />
+  <rect width="600" height="750" fill="url(#spotlight)" />
+
+  <!-- Subtle Editorial Grid Lines -->
+  <line x1="50" y1="0" x2="50" y2="750" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1" />
+  <line x1="550" y1="0" x2="550" y2="750" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1" />
+  <line x1="0" y1="60" x2="600" y2="60" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1" />
+  <line x1="0" y1="690" x2="600" y2="690" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1" />
+
+  <!-- Stylized Silhouette / Portrait Placeholder -->
+  <g transform="translate(160, 160)" opacity="0.85">
+    <!-- Abstract Head & Torso -->
+    <circle cx="140" cy="110" r="75" fill="#25252D" stroke="url(#goldAccent)" stroke-width="1.5" />
+    <path d="M 40 330 C 40 230, 90 200, 140 200 C 190 200, 240 230, 240 330 Z" fill="#202028" stroke="url(#goldAccent)" stroke-width="1.5" />
+    
+    <!-- Central Monogram Silhouette -->
+    <text x="140" y="125" font-family="'Cinzel', serif" font-size="44" font-weight="700" fill="url(#goldAccent)" text-anchor="middle" letter-spacing="4">PH</text>
+  </g>
+
+  <!-- Framing Accents -->
+  <rect x="30" y="30" width="540" height="690" stroke="url(#goldAccent)" stroke-width="1" stroke-opacity="0.4" fill="none" />
+  <path d="M 30 60 L 30 30 L 60 30" stroke="url(#goldAccent)" stroke-width="2.5" fill="none" />
+  <path d="M 570 60 L 570 30 L 540 30" stroke="url(#goldAccent)" stroke-width="2.5" fill="none" />
+  <path d="M 30 690 L 30 720 L 60 720" stroke="url(#goldAccent)" stroke-width="2.5" fill="none" />
+  <path d="M 570 690 L 570 720 L 540 720" stroke="url(#goldAccent)" stroke-width="2.5" fill="none" />
+
+  <!-- Editorial Typographic Labels -->
+  <text x="50" y="90" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#C59B48" letter-spacing="3">PORTRAIT // 01</text>
+  <text x="550" y="90" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#8E8E93" letter-spacing="2" text-anchor="end">AUTORAL ARCHIVE</text>
+  
+  <!-- Instructions Tag for Pablo -->
+  <rect x="80" y="560" width="440" height="64" rx="8" fill="#18181D" stroke="#C59B48" stroke-width="1" stroke-opacity="0.5" />
+  <text x="300" y="588" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="600" fill="#F7E7CE" text-anchor="middle" letter-spacing="1">ESPAÇO PARA FOTO DE PABLO HENRICK</text>
+  <text x="300" y="608" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#9CA3AF" text-anchor="middle" letter-spacing="0.5">Substitua este arquivo por seu retrato oficial (assets/avatar.jpg)</text>
+
+  <!-- Bottom Coordinates -->
+  <text x="50" y="680" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#6B7280" letter-spacing="2">23° 32' S / 46° 38' W</text>
+  <text x="550" y="680" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#6B7280" letter-spacing="2" text-anchor="end">PH-INDEX-2025</text>
+</svg>
+

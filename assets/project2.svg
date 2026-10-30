@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560" fill="none">
+  <defs>
+    <linearGradient id="p2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12131A" />
+      <stop offset="50%" stop-color="#1A1C24" />
+      <stop offset="100%" stop-color="#0E0F14" />
+    </linearGradient>
+    <linearGradient id="p2Violet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2D9F3" />
+      <stop offset="50%" stop-color="#9370DB" />
+      <stop offset="100%" stop-color="#483D8B" />
+    </linearGradient>
+    <linearGradient id="p2Gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2D299" />
+      <stop offset="100%" stop-color="#9C752B" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="900" height="560" rx="16" fill="url(#p2Grad)" />
+  <rect width="898" height="558" x="1" y="1" rx="15" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="2" />
+  
+  <!-- UI Browser Chrome -->
+  <rect x="24" y="24" width="852" height="42" rx="10" fill="#111116" />
+  <circle cx="50" cy="45" r="5" fill="#EF4444" opacity="0.8"/>
+  <circle cx="68" cy="45" r="5" fill="#F59E0B" opacity="0.8"/>
+  <circle cx="86" cy="45" r="5" fill="#10B981" opacity="0.8"/>
+  <rect x="120" y="34" width="360" height="22" rx="6" fill="#1B1B22" />
+  <text x="140" y="49" font-family="'Space Grotesk', monospace" font-size="11" fill="#71717A">https://designsystem.pablohenrick.dev</text>
+
+  <!-- Visual Mockup Canvas: Design System & Modular UI Components -->
+  <g transform="translate(60, 100)">
+    <!-- Component Card 1: Typography Scale -->
+    <rect x="0" y="0" width="240" height="150" rx="10" fill="#171822" stroke="#FFFFFF" stroke-opacity="0.06"/>
+    <text x="20" y="35" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#9CA3AF" letter-spacing="1">TYPE SYSTEM</text>
+    <text x="20" y="70" font-family="'Cinzel', serif" font-size="28" font-weight="700" fill="#F4F4F5">Aa 96pt</text>
+    <text x="20" y="100" font-family="'Space Grotesk', sans-serif" font-size="12" fill="#E5C384">Syne / Inter / Space Mono</text>
+    <rect x="20" y="120" width="180" height="4" rx="2" fill="#2E3040"/>
+    <rect x="20" y="120" width="120" height="4" rx="2" fill="url(#p2Gold)"/>
+
+    <!-- Component Card 2: Color Palette Tokens -->
+    <rect x="260" y="0" width="240" height="150" rx="10" fill="#171822" stroke="#FFFFFF" stroke-opacity="0.06"/>
+    <text x="280" y="35" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#9CA3AF" letter-spacing="1">COLOR TOKENS</text>
+    <circle cx="295" cy="75" r="15" fill="#0C0C0E" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.2"/>
+    <circle cx="335" cy="75" r="15" fill="#1C1C22"/>
+    <circle cx="375" cy="75" r="15" fill="#C59B48"/>
+    <circle cx="415" cy="75" r="15" fill="#F7E7CE"/>
+    <circle cx="455" cy="75" r="15" fill="#FFFFFF"/>
+    <text x="280" y="120" font-family="'Space Grotesk', monospace" font-size="11" fill="#71717A">Luxury Noir • Pure Gold</text>
+
+    <!-- Component Card 3: Metrics & Graph -->
+    <rect x="520" y="0" width="260" height="150" rx="10" fill="#171822" stroke="#FFFFFF" stroke-opacity="0.06"/>
+    <text x="540" y="35" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#9CA3AF" letter-spacing="1">INTERACTION MATRIX</text>
+    <polyline points="540,115 580,95 620,105 660,70 700,75 740,45" fill="none" stroke="url(#p2Gold)" stroke-width="2.5" />
+    <circle cx="740" cy="45" r="4" fill="#F2D299" />
+
+    <!-- Bottom Interface Layout Strip -->
+    <rect x="0" y="170" width="780" height="140" rx="10" fill="#171822" stroke="#FFFFFF" stroke-opacity="0.06"/>
+    <rect x="20" y="190" width="220" height="100" rx="6" fill="#1F212D"/>
+    <rect x="260" y="190" width="180" height="18" rx="4" fill="#2E3040"/>
+    <rect x="260" y="220" width="360" height="12" rx="3" fill="#232431"/>
+    <rect x="260" y="240" width="280" height="12" rx="3" fill="#232431"/>
+    <rect x="260" y="265" width="110" height="24" rx="12" fill="url(#p2Gold)"/>
+  </g>
+
+  <!-- Editorial Info Banner at bottom -->
+  <rect x="40" y="460" width="820" height="64" rx="10" fill="#111116" fill-opacity="0.9" stroke="#FFFFFF" stroke-opacity="0.05" />
+  <text x="64" y="498" font-family="'Cinzel', serif" font-weight="700" font-size="16" fill="#F4F4F5" letter-spacing="2">PROJETO 02 // DESIGN SYSTEM &amp; ARQUITETURA UI</text>
+  <text x="836" y="498" font-family="'Space Grotesk', monospace" font-size="12" fill="#E5C384" text-anchor="end">FIGMA • CSS ARCHITECTURE • TOKENS</text>
+</svg>
+

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450" fill="none">
+  <defs>
+    <linearGradient id="g6Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141416" />
+      <stop offset="100%" stop-color="#222226" />
+    </linearGradient>
+    <linearGradient id="gGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2D299" />
+      <stop offset="100%" stop-color="#9C752B" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#g6Grad)" />
+  <rect width="596" height="446" x="2" y="2" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1.5" />
+  
+  <!-- Digital Horizons & Keynote -->
+  <g transform="translate(150, 130)">
+    <line x1="0" y1="140" x2="300" y2="140" stroke="url(#gGold)" stroke-width="2"/>
+    <circle cx="150" cy="140" r="70" fill="#1C1C22" stroke="url(#gGold)" stroke-width="1.5"/>
+    <text x="150" y="135" font-family="'Cinzel', serif" font-size="18" fill="#FFFFFF" text-anchor="middle">HORIZONTES</text>
+    <text x="150" y="155" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#E5C384" text-anchor="middle">IMERSÃO &amp; FUTURO</text>
+  </g>
+
+  <text x="30" y="40" font-family="'Space Grotesk', monospace" font-size="11" fill="#C59B48">06 // EVENTOS &amp; FUTURO</text>
+  <text x="570" y="40" font-family="'Space Grotesk', monospace" font-size="11" fill="#71717A" text-anchor="end">CONEXÕES GLOBAIS</text>
+</svg>
+

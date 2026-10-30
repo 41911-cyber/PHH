@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 140" width="420" height="140" fill="none">
+  <defs>
+    <linearGradient id="sigGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="30%" stop-color="#F2D299" />
+      <stop offset="70%" stop-color="#C59B48" />
+      <stop offset="100%" stop-color="#DFC48B" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Flowing expressive signature strokes for "Pablo Henrick" -->
+  <!-- Initial P sweep -->
+  <path d="M 30 110 C 25 80, 40 30, 65 24 C 85 20, 100 35, 95 60 C 90 85, 60 95, 45 92 C 35 90, 48 40, 52 28" 
+        stroke="url(#sigGold)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- "ablo" connection -->
+  <path d="M 52 75 C 65 70, 75 88, 85 75 C 92 65, 102 78, 110 72 C 118 66, 122 45, 126 38 C 122 55, 126 80, 134 76 C 142 70, 148 68, 155 75 C 160 80, 166 70, 172 73" 
+        stroke="url(#sigGold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- "Henrick" uppercase H flourish and rapid artistic scrawl -->
+  <path d="M 195 95 C 190 60, 198 25, 205 20 C 208 28, 202 70, 205 92" 
+        stroke="url(#sigGold)" stroke-width="2.6" stroke-linecap="round" />
+  <path d="M 190 55 C 205 52, 222 48, 230 45 C 238 42, 234 68, 238 88" 
+        stroke="url(#sigGold)" stroke-width="2.4" stroke-linecap="round" />
+  
+  <!-- "enrick" cursive waves -->
+  <path d="M 238 72 C 248 65, 255 78, 262 70 C 270 60, 275 82, 285 72 C 292 65, 296 50, 298 42 C 296 60, 302 76, 310 70 C 318 64, 322 75, 330 68 C 336 62, 345 60, 352 64 C 360 68, 365 72, 375 66" 
+        stroke="url(#sigGold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Underline flourish with dynamic taper -->
+  <path d="M 60 115 C 120 102, 220 98, 310 104 C 350 106, 395 102, 405 96" 
+        stroke="url(#sigGold)" stroke-width="1.8" stroke-linecap="round" />
+  <circle cx="410" cy="95" r="2" fill="url(#sigGold)" />
+</svg>
+
